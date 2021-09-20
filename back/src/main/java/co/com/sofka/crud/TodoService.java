@@ -1,8 +1,7 @@
-package co.com.sofka;
+package co.com.sofka.crud;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Service
 public class TodoService {
@@ -10,7 +9,7 @@ public class TodoService {
     @Autowired
     private TodoRepository repository;
 
-    public Iterable <Todo> list (){
+    public Iterable<Todo> list(){
         return repository.findAll();
     }
 
@@ -22,8 +21,7 @@ public class TodoService {
         repository.delete(get(id));
     }
 
-    public Todo get (Long id){
+    public Todo get(Long id){
         return repository.findById(id).orElseThrow();
     }
-
 }
